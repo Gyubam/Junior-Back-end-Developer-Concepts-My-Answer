@@ -21,6 +21,21 @@
 <details>
 <summary>Java 접근 제어자에는 무엇이 있는지 설명해주시고 Protect와 Private는 어느 시점에 어떻게 사용될 수 있는지 이야기 해주세요.</summary>
 
+</br>
+
+- 자바의 접근 제어자에는 public, private, default, protected 가 있다.
+
+- public : 클래스의 외부에서 접근이 가능
+
+- private : 클래스 내부에서만 접근 가능
+
+- default : 동일 패키지에 있는 다른 클래스에서 접근 가능
+
+- protected : 동일 패키지의 다른 클래스와 다른 패키지의 하위클래스에서 접근 가능
+
+- Private 접근 제어자의 경우, 외부에 공개해야 할 일이 없고, 내부에서 주로 사용할 경우 은닉화를 위해 사용한다. 
+
+- Protected 접근 제어자의 경우, 클래스 설계 시, 추후 상속을 대비하기 위해 확장성을 고려해서 만들어 주기 위해 사용한다.
 
 </details>
 
