@@ -25,13 +25,13 @@
 
 - 자바의 접근 제어자에는 public, private, default, protected 가 있다.
 
-- public : 클래스의 외부에서 접근이 가능
+  - public : 클래스의 외부에서 접근이 가능
 
-- private : 클래스 내부에서만 접근 가능
+  - private : 클래스 내부에서만 접근 가능
 
-- default : 동일 패키지에 있는 다른 클래스에서 접근 가능
+  - default : 동일 패키지에 있는 다른 클래스에서 접근 가능
 
-- protected : 동일 패키지의 다른 클래스와 다른 패키지의 하위클래스에서 접근 가능
+  - protected : 동일 패키지의 다른 클래스와 다른 패키지의 하위클래스에서 접근 가능
 
 - Private 접근 제어자의 경우, 외부에 공개해야 할 일이 없고, 내부에서 주로 사용할 경우 은닉화를 위해 사용한다. 
 
@@ -42,7 +42,20 @@
 <details>
 <summary>JVM의 메모리 구조에 대해서 설명해 주세요.</summary>
 
+</br>
 
+- JVM(Java Virtual Machine) 이란? : 자바 가상 머신으로, 자바와 운영체제 사이에서 중개자 역할을 수행하며, 자바가 운영체제에 구애 받지 않고 프로그램을 실행할 수 있도록 도와준다.
+
+- JVM의 구조는 Garbage Collector, Execution Engine, Class Loader, Runtime Data Area로 나눌 수 있다.
+
+  - Class Loader : JVM 내로 클래스 파일을 로드하고, 링크를 통해 배치하는 작업을 수행하는 모듈, 런타임 시에 동적으로 클래스를 로드한다.
+  - Execution Engine : 클래스 로더를 통해 JVM 내의 Runtime Data Area에 배치된 바이트 코드들을 명렁어 단위로 읽어서 실행한다.
+  - Garbage Collector : 힙 메모리 영역에 생성된 객체들 중에서 참조되지 않은 객체들을 탐색 후 제거하는 역할을 한다.
+  - Runtime Data Area : JVM의 메모리 영역으로 자바 애플리케이션을 실행할 때 사용되는 데이터들을 적재하는 영역이다. 이 영역은 크게 4가지로 나뉜다.
+    - Method area : 모든 쓰레드가 공유하는 메모리 영역
+    - Heap area : 모든 쓰레드가 공유하며, new 키워드로 생성된 객체와 배열이 생성되는 영역
+    - Stack area : 메서드 호출 시마다 각각의 스택 프레임(그 메서드만을 위한 공간)을 생성한다.
+    - PC Register : 쓰레드가 시작될 때 생성되며, 생성될 때마다 생성되는 공간으로 쓰레드마다 하나씩 존재한다.
 </details>
 
 <details>
