@@ -61,7 +61,13 @@
 <details>
 <summary>JVM은 어떤 방식으로 코드를 해석하고 실행시키는지 흐름에 맞게 설명해 주세요. (Java 실행 흐름)</summary>
 
+</br>
 
+- 자바 소스파일(.java)이 실행되는 과정
+  1. 자바 컴파일러에 의해 소스파일(.java)이 바이트 코드 파일(.class)로 변환
+  2. JVM은 .class 파일을 Class Loader를 이용해 로드하고, 링크를 통해 배치하는 작업 수행
+  3. Class Loader에 의해 .class 파일이 JVM 메모리 영역에 적재됨
+  4. Execution Engine은 JVM 메모리 영역에 적재된 .class 파일을 기계어로 변경하여 명령어 단위로 실행
 </details>
 
 
