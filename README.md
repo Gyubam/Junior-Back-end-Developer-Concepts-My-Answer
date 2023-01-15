@@ -262,11 +262,99 @@
 - bean을 생성할 때, 다른 bean 정보를 가져오는 Dependency Lookup까지만 사용
 </details>
 
+<details>
+<summary>Interceptor와 Filter의 차이점을 말해주세요</summary>
+
+</br>
+
+- 필터는 디스패처 서블릿에 요청이 전달되기 전/후에 url 패턴에 맞는 모든 요청에 대해 부가작업을 처리할 수 있는 기능을 제공
+- 인터셉터는 Spring이 제공하는 기술로써, 디스패처 서블릿이 컨트롤러를 호출하기 전과 후에 요청과 응답을 참조하거나 가공할 수 있는 기능을 제공
+- 필터는 Request와 Response를 조작할 수 있지만 인터셉터는 조작할 수 없다.
+- 필터에서는 기본적으로 스프링과 무관하게 전역적으로 처리해야 하는 작업들을 처리할 수 있다.
+- 인터셉터에서는 API 호출, Controller로 넘겨주는 정보(데이터)의 가공 등, 클라이언트의 요청과 관련되어 전역적으로 처리해야 하는 작업들을 처리할 수 있다.
+</details>
 
 
+<details>
+<summary>스프링에서 Bean으로 Filter를 구현할 수 있을까요? 혹시나 가능하다면 어떻게 할 수 있을까요?</summary>
+
+</br>
+
+- servlet의 Filter 인터페이스를 구현하여 만들 수 있다.
+- init(), dofilter(), destroy() 메서드를 오버라이딩하여 구현한다.
+- 해당 필터를 @Configuration, @Bean을 통해 Spring Bean으로 등록한다.
+</details>
 
 
+<details>
+<summary>Message Converter는 어느 시점에 사용되고 어떤 기능을 제공하나요?</summary>
+
+</br>
+
+- 요청 본문에서 메시지를 읽어들이거나(@RequestBody), 응답 본문에 메시지를 작성할 때(@ResponseBody) 사용
+- RequestMappingHandlerAdapter 에서 ArgumentResolver 호출할 때
+- ArgumentResolver에 요청하는 파라미터가 @RequestBody 또는 HttpEntity인 경우 HTTP 메시지 컨버터를 사용해 'read'
+- 응답의 경우에도 @ResponseBody 또는 HttpEntity를 처리하는 ReturnValueHandler에서 HTTP 메시지 컨버터를 호출해 응답 결과를 'write' 
+</details>
 
 
+<details>
+<summary>Value Object, Data Transfer Object, Data Access Object 대해서 각각 설명해 주세요.</summary>
+
+</br>
+
+- DAO : 데이터베이스의 data에 접근하기 위한 객체, DataBase에 접근 하기 위한 로직 & 비지니스 로직을 분리하기 위해 사용
+- DTO : 계층 간 데이터 교환을 하기 위해 사용하는 객체, 로직을 가지지 않는 순수한 데이터 객체(getter & setter 만 가진 클래스)
+- VO : 값 오브젝트로써 값을 위해 쓰임, read-Only 특징(사용하는 도중에 변경 불가능하며 오직 읽기만 가능)
+</details>
+
+
+<details>
+<summary>Spring AOP는 어떻게 동작할까요? (프록시는 언제 생성되고 요청은 어떻게 잡아내나요?</summary>
+
+</br>
+
+- 타겟이 호출되는 시점에 호출을 가로채 프록시를 생성하며, 실제 작업을 행하는 오브젝트를 감싼 후에 실제 오브젝트의 요청하기 전, 후의 작업을 실행한다.
+- 프록시 방식을 사용하는 스프링 AOP는 메서드 실행 지점에만 AOP를 적용할 수 있다.
+- 스프링 AOP에서는 런타임시에 Weaving을 통해서 프록시 객체를 생성하게 된다.
+</details>
+
+
+<details>
+<summary>Spring AOP는 CTW, PCW, LTW, RTW 중에 무엇일까요?</summary>
+
+</br>
+
+- 스프링 aop는 런타임 시에 적용되는 RTW 방식을 사용한다.
+  - CTW : .java 소스 코드를 컴파일러를 사용해서 .class 를 만드는 시점에 부가 기능 로직을 추가
+  - PCW : 외부 라이브러리를 Weaving 할 때 사용, compile-Time 위빙과 거의 동일한 동작
+  - LTW : 중간에서 .class 파일을 조작한 다음 JVM에 올림
+</details>
+
+<details>
+<summary>Dynamic Proxy의 CTW, BTW, LTW, RTW은 각각 어떤 시점에 개입하는 것일까요?</summary>
+
+</br>
+
+- 
+</details>
+
+
+<details>
+<summary>(Spring AOP와 비교하여) AspectJ의 도입 시점은 어느 시점이 될까요? 본인 만의 생각을 알려주세요.</summary>
+
+</br>
+
+- 
+</details>
+
+
+<details>
+<summary>@Transactional를 스프링 Bean 메서드 A에 적용하였고, 해당 Bean의 메서드 B가 호출되었을 때 메서드 내부에서 메서드 A를 호출하면 어떤 요청 흐름이 발생하게 되나요?</summary>
+
+</br>
+
+- @Transactional는 프록시 기반이므로, 메서드가 실행되기 전 트랜잭션을 묶는다. 이때 인스턴스에서 처음 호출하는 메서드의 속성을 따라가게 되는데, 하위 메서드인 B의 속성이 상위 메서드인 A에 전이되지 않으므로 트랜잭션 처리가 되지 않는다.
+</details>
 
 
