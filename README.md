@@ -357,4 +357,118 @@
 - @Transactional는 프록시 기반이므로, 메서드가 실행되기 전 트랜잭션을 묶는다. 이때 인스턴스에서 처음 호출하는 메서드의 속성을 따라가게 되는데, 하위 메서드인 B의 속성이 상위 메서드인 A에 전이되지 않으므로 트랜잭션 처리가 되지 않는다.
 </details>
 
+<details>
+<summary>MVC 1, 2 개념에 대해서 설명해 주세요.</summary>
 
+</br>
+
+- MVC 1
+  - View와 Controller 모두 jsp가 담당하는 형태이다.
+  - 따라서 jsp 내에 자바 코드와 html, css 코드가 섞여 유지보수 차원에서 좋지 않다.
+- MVC 2
+  - jsp는 뷰의 역할만 하며, Controller의 역할을 Servelt이 수행한다.
+  - 사용자의 요청을 servlet이 받아, 웹 브라우저의 요청을 처리한 후 jsp 페이지로 포워딩한다.
+</details>
+
+<details>
+<summary>Front Controller Pattern은 무엇인가요?</summary>
+
+</br>
+
+- 공통된 로직을 하나의 서블릿만을 앞단에 두어 모든 클라이언트의 요청을 처리하는 방식이다.
+- 스프링은 프론트 컨트롤러 패턴을 따르고 이를 DispatcherServlet이 담당한다.
+</details>
+
+<details>
+<summary>Dispatcher Servlet이란 무엇인가요?</summary>
+
+</br>
+
+- HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아 적합한 컨트롤러에 위임해주는 프론트 컨트롤러(Front Controller)이다.
+- 클라이언트로부터 어떠한 요청이 오면 Tomcat(톰캣)과 같은 서블릿 컨테이너가 요청을 받게 되는데, 이 모든 요청을 프론트 컨트롤러인 디스패처 서블릿이 가장 먼저 받게 된다. 그러면 디스패처 서블릿은 공통적인 작업을 먼저 처리한 후에 해당 요청을 처리해야 하는 컨트롤러를 찾아서 작업을 위임한다.
+</details>
+
+
+<details>
+<summary>Spring MVC에서 HTTP 요청이 들어왔을 때의 흐름을 설명해 주세요.</summary>
+
+</br>
+
+1. 클라이언트의 요청을 디스패처 서블릿이 받음
+2. 요청 정보를 통해 요청을 위임할 컨트롤러를 찾음
+3. 요청을 컨트롤러로 위임할 핸들러 어댑터를 찾아서 전달함
+4. 핸들러 어댑터가 컨트롤러로 요청을 위임함
+5. 비지니스 로직을 처리함
+6. 컨트롤러가 반환값을 반환함
+7. HandlerAdapter가 반환값을 처리함
+8. 서버의 응답을 클라이언트로 반환함
+
+</details>
+
+
+<details>
+<summary>A 라는 Service 객체의 메서드가 존재하고 내부에서 로컬 트랜잭션이 3개가 존재한다고 할 때, @Transactional을 A 메서드에 적용하였을 때 어떠한 일이 벌어지고, 어떤 요청 흐름이 발생하게 되나요?</summary>
+
+</br>
+
+- 트랜잭션 전파 수준에 따라 달라진다.
+- 만약 기본 옵션인 REQUIRED를 가져간다면 로컬 트랜잭션 3개가 모두 부모 트랜잭션인 A에 합류하여 수행된다.
+- 따라서 부모 트랜잭션이나 로컬 트랜잭션 3개나 모두 같은 트랜잭션이므로 어느 하나의 로직에서든 문제가 발생하면 전부 롤백이 된다.
+
+</details>
+
+
+<details>
+<summary>Reflection API는 Runtime에서 코드를 생성하는데 많이 사용됩니다. 이는 Spring에서도 자주 활용되는데요. 스프링 컨테이너는 이런 Reflection으로 생성된 Bean의 정보를 실행 이후에 알고 있네요? 어떻게 알 수 있을까요?</summary>
+
+</br>
+
+- 트랜잭션 전파 수준에 따라 달라진다.
+- 만약 기본 옵션인 REQUIRED를 가져간다면 로컬 트랜잭션 3개가 모두 부모 트랜잭션인 A에 합류하여 수행된다.
+- 따라서 부모 트랜잭션이나 로컬 트랜잭션 3개나 모두 같은 트랜잭션이므로 어느 하나의 로직에서든 문제가 발생하면 전부 롤백이 된다.
+
+</details>
+
+</br>
+</br>
+
+
+## ORM - JPA
+
+<details>
+<summary>ORM Framework가 무엇인지 설명해주세요.</summary>
+
+</br>
+
+- ORM은 데이터베이스와 객체지향 프로그래밍 언어간의 호환되지 않는 데이터를 변환하는 프로그래밍 기법이다.
+- 따라서 ORM Framework는 직접 쿼리를 날리는 등의 작업을 하지않고, 객체와 데이터베이스를 매핑하며 객체 지향 어플리케이션 개발에 집중이 가능하다.
+
+</details>
+
+<details>
+<summary>ORM Framework와 Query Mapping Framework의 차이에 대해서 설명해주세요. (JPA vs Mybatis)</summary>
+
+</br>
+
+- Query Mapping의 경우, SQL문을 직접 작성하고 쿼리 수행 결과를 어떠한 객체에 매핑할지 바인딩 하기 때문에, DB에 종속적이다.
+- ORM의 경우, 쿼리문을 작성하지 않으므로 DB에 종속적이지 않아, 객체 중심의 개발이 가능하며 1차 캐싱, 쓰기지연, 변경감지, 지연로딩 등을 제공한다.
+
+</details>
+
+<details>
+<summary>ORM Framework가 해결하는 Object–relational impedance mismatch 이 무엇인지 아는 만큼 설명해주세요.</summary>
+
+</br>
+
+- 
+
+</details>
+
+<details>
+<summary>Hibernate가 제공하는 Cache 방식들에 대해서 아는 만큼 설명해주세요.</summary>
+
+</br>
+
+- 
+
+</details>
