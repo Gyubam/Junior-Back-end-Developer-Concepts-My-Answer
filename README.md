@@ -551,7 +551,7 @@
 
 
 <details>
-<summaryJPA의 Bulk Data Operations을 이용하였을 경우 발생하는 문제에 대해서 아는만큼 설명해주세요.</summary>
+<summary>JPA의 Bulk Data Operations을 이용하였을 경우 발생하는 문제에 대해서 아는만큼 설명해주세요.</summary>
 
 </br>
 
@@ -561,7 +561,7 @@
 
 
 <details>
-<summaryJPA N+1 문제가 언제 발생하는지 아는 만큼 설명해주세요.</summary>
+<summary>JPA N+1 문제가 언제 발생하는지 아는 만큼 설명해주세요.</summary>
 
 </br>
 
@@ -572,7 +572,7 @@
 </details>
 
 <details>
-<summaryJPA N+1 문제를 해결하는 방법들을 아는 만큼 설명해주세요.</summary>
+<summary>JPA N+1 문제를 해결하는 방법들을 아는 만큼 설명해주세요.</summary>
 
 </br>
 
