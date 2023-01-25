@@ -581,3 +581,27 @@
 - BatchSize 설정을 통해 쿼리문이 데이터베이스의 row 수만큼 나가는게 아닌, 설정한 Size만큼 미리 로하도록 한다.
 
 </details>
+
+<details>
+<summary>Entity와 Value Object를 구분 지을만한 요소가 무엇이 있을지 말씀해주세요. (무엇이 엔티티로 선언되고, 무엇이 벨류 오브젝트로 선언되는지? 그 구분점은?)</summary>
+
+</br>
+
+- Entity는 식별성과 연속성을 가진 객체이다. DB의 Primary Key등이 식별자 역할을 하며, 엔티티는 자신의 생명주기 동안에 형태와 내용이 변경될 수 있다.
+- Entity의 예로는 회원, 상품과 같이 식별이 가능하고 고유성을 지니며, 연속성을 지닌 객체이다.
+- 반면 Value Object의 경우, 개념적인 식별성 없이 도메인의 서술적 특면만을 나타내는 객체이다. Value Object는 속성의 값이 중요하기 때문에, 대부분 식별자를 필요로 하지 않는다.
+- Value Object은 예를 들어, 가격이라는 테이블이 금액, 통화, 과세정보 등의 컬럼을 지닐 때, 상품이라는 Entity에 포함된 하나의 Value Object라고 표현할 수 있다.
+
+</details>
+
+
+<details>
+<summary>QueryDSL 같은 JPQL Builder를 사용하는 이유를 설명해주세요.</summary>
+
+</br>
+
+- 기존 JPQL은 쿼리문을 String 형식으로 작성하기 때문에 개발자 의존적이다.
+- 또한 컴파일 단계에서 Type-Check가 불가해, 런타임시에 오류를 발견하는 치명적인 문제를 야기한다.
+- 따라서 QueryDsl과 같이 문자가아닌, 코드를 통한 쿼리문 작성과 컴파일 시점에 오류를 발견할 수 있다는 장점을 지니기 때문에 위와같은 JPQL Builder를 사용한다.
+</details>
+
