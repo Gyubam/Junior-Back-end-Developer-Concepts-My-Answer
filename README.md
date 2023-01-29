@@ -115,6 +115,114 @@
 - 깊은 복사를 위해서 직접 객체를 생성후 복사하거나, 복사 생성자 및 복사 팩토리, Clonable 인터페이스를 구현하는 방법이 있다.
 </details>
 
+<details>
+<summary>Java Reflection이란 무엇이고, 어떨 때 사용되는 것인가요?</summary>
+
+</br>
+
+- 리플렉션은 힙 영역에 로드된 Class 타입의 객체를 통해, 원하는 클래스의 인스턴스를 생성할 수 있도록 지원하고, 인스턴스의 필드와 메소드를 접근 제어자와 상관 없이 사용할 수 있도록 지원하는 API이다.
+- 리플렉션을 사용하면 동적으로 클래스를 만들어서 의존 관계를 맺어줄 수 있다.
+- Spring의 Bean Factory는 런타임에 해당 어노테이션이 붙은 클래스를 탐색하고 발견한다면, 리플렉션을 통해 해당 클래스의 인스턴스를 생성하고 필요한 필드를 주입하여 Bean Factory에 저장하는 식으로 사용이 된다.
+</details>
+
+<details>
+<summary>Java Instrumentation이란 무엇이고 사용했을 때 어떤 장점이 있을까요?</summary>
+
+</br>
+
+- 
+</details>
+
+
+<details>
+<summary>Java Lambda는 왜 만들어졌고, 어느 때 주로 사용할까요?</summary>
+
+</br>
+
+- 람다식이란 함수를 하나의 식으로 표현한 것이다.
+- 람다식이 등장하게 된 이유는 불필요한 코드를 줄이고, 가독성을 높이기 위함이다.
+- 불필요한 코드를 줄이고, 가독성을 높이기 위해 사용한다.
+</details>
+
+
+<details>
+<summary>Java Stream API의 특징은 무엇이 있나요?</summary>
+
+</br>
+
+- 원본의 데이터를 변경하지 않는다.
+- 일회용이기 때문에 Stream은 닫히면 재생성 해주어야 한다.
+- 내부 반복으로 작업을 처리하므로 간결한 코드 작성이 용이하다.
+</details>
+
+
+<details>
+<summary>Java의 Functional interface는 무엇인가요?</summary>
+
+</br>
+
+- 추상 메서드가 오직 하나인 인터페이스를 의미한다.
+- 여러 개의 디폴트 메서드가 있더라도 추상 메서드가 오직 하나면 함수형 인터페이스이다.
+</details>
+
+</br>
+</br>
+
+<details>
+<summary>foreach를 사용할 수 있는 자료구조는 어떤 인터페이스를 상속 받고 있나요?</summary>
+
+</br>
+
+- Iterable 인터페이스를 상속 받는다.
+</details>
+
+</br>
+</br>
+
+<details>
+<summary>iterator와 iterable 차이는 무엇인가요?</summary>
+
+</br>
+
+- Iterator 인터페이스는 Collection과는 별개로 존재하는 인터페이스이다. (hasNext(), next(), remove() 등이 메소드 이용)
+- Iterable은 컬렉션의 상위 인터페이스이다.
+- Iterable 인터페이스 안에는 iterator 메소드가 추상메소드로 선언되어있다.
+</details>
+
+</br>
+</br>
+
+<details>
+<summary>Fast-fail iterator는 무엇이고 어떤 것을 위해 사용되는 건가요?</summary>
+
+</br>
+
+- Fail-Fast 방식은 동작중 오류가 발생하면 바로 오류를 알리고, 작업을 중단한다.
+- 
+</details>
+
+</br>
+</br>
+
+<details>
+<summary>자바의 synchronized 키워드에 대해 설명해주시고 Reentrant Lock와의 차이는 무엇인지 말씀해주세요.</summary>
+
+</br>
+
+- synchronized는 멀티쓰레드 환경에서 현재 데이터를 사용하고 있는 해당 스레드를 제외하고 나머지 스레드들은 데이터에 접근 할 수 없도록 막는 기능이다.
+- synchronized는 메서드 단위로 lock을 거는 반면, Reentrant Lock의 경우 코드 블럭을 설정할 수 있어, synchronized 영역을 해당 코드블럭 내로 한정한다.
+</details>
+
+
+<details>
+<summary>Java의 synchronized Lock 범위에 대해서 알려주세요. (Class Lock, Instance Lock)</summary>
+
+</br>
+
+- synchronized method는 인스턴스에 대하여 lock을 건다. 또한 synchronized가 적용된 모든 object에 대해서 lock을 공유한다.
+- static이 포함된 synchronized method방식은 인스턴스가 아닌 클래스 단위로 lock이 발생한다. 인스턴스 단위의 synchronized method와 lock을 공유하지 않는다.
+</details>
+
 </br>
 </br>
 
@@ -466,9 +574,7 @@
 
 </br>
 
-- 트랜잭션 전파 수준에 따라 달라진다.
-- 만약 기본 옵션인 REQUIRED를 가져간다면 로컬 트랜잭션 3개가 모두 부모 트랜잭션인 A에 합류하여 수행된다.
-- 따라서 부모 트랜잭션이나 로컬 트랜잭션 3개나 모두 같은 트랜잭션이므로 어느 하나의 로직에서든 문제가 발생하면 전부 롤백이 된다.
+- 
 
 </details>
 
