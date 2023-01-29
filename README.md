@@ -72,6 +72,49 @@
   4. Execution Engine은 JVM 메모리 영역에 적재된 .class 파일을 기계어로 변경하여 명령어 단위로 실행
 </details>
 
+
+<details>
+<summary>Garbage Collector은 무엇이고, Parallel GC와 CMS GC, G1 GC의 큰 차이는 무엇인지 설명해주세요. (mark-sweep-compact, concurrency-sweep, garbage-first)</summary>
+
+</br>
+
+- 시스템에서 더이상 사용하지 않는 동적 할당된 메모리(힙 메모리)를 찾아 자동으로 자원을 회수함으로써, 시스템에서 가비지 컬렉션을 수행하는 부분을 가비지 컬렉터라고 한다.
+- 힙 영역에 존재하는 객체들에 접근이 가능한지 확인한 후, Mark 과정을 진행하며, Mark되지 않은 객체는 제거한다.
+- Serial GC : 싱글 스레드로 동작하여 느리고, 그만큼 Stop The World 시간이 다른 GC에 비해 길다. 실무에서는 사용 X
+- Parallel GC : Java 8의 Default GC로써, 멀티 스레드 방식을 사용하기 때문에, Serial GC에 비해 상대적으로 Stop The World 가 짧다.
+- CMS GC : Stop The World로 Java Application이 멈추는 현상을 줄이고자 만든 GC, Reacable 한 객체를 한번에 찾지 않고 나눠서 찾는 방식을 사용 (4 STEP으로 나눠짐)
+- G1 GC : Java 9+ 의 default GC로써, Heap을 Region이라는 일정한 부분으로 나눠서 메모리를 관리한다.
+</details>
+
+
+<details>
+<summary>Java 8 버전에 추가된 중요 기능들에 대해서 설명해주세요.</summary>
+
+</br>
+
+- Lambda 표현식, Default Method, 함수형 인터페이스, Optional, 날짜 관련 클래스등이 추가되었다.
+</details>
+
+<details>
+<summary>Java는 Call By Value일까요, Call By Reference 일까요?</summary>
+
+</br>
+
+- Java 는 기본적으로 Call by Value 로만 동작한다.
+- 매개변수로 원시타입을 넘길 경우, 메서드 호출 시 stack 영역에 새로 생성, 즉 복사가 이루어진다.
+- 참조타입(클래스, 배열 등)의 경우, 변수 자체는 stack 영역에 생성되지만, 실제 객체는 Heap 영역에 위치하므로, 다른 영역에서 객체를 서로 공유하게 된다. 따라서 메서드에서 수정이 일어날 경우, 기존에 참조하고 있던 타입에도 변경이 일어난다.
+</details>
+
+<details>
+<summary>Shallow Copy와 Deep Copy의 차이는 무엇인가요? 자바에서 Deep Copy를 하기 위해서는 무엇을 사용하여야 하나요?</summary>
+
+</br>
+
+- 얕은 복사의 경우, 객체의 참조값을 복사함으로써, 해당 객체를 수정할 때 기존에 참조하고 있던 데이터 또한 변경이 된다.
+- 깊은 복사의 경우, 직접 객체를 복사함으로써, 객체를 수정해도 각각 다른 객체 2개를 참조한다.
+- 깊은 복사를 위해서 직접 객체를 생성후 복사하거나, 복사 생성자 및 복사 팩토리, Clonable 인터페이스를 구현하는 방법이 있다.
+</details>
+
 </br>
 </br>
 
