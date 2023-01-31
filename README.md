@@ -165,8 +165,6 @@
 - 여러 개의 디폴트 메서드가 있더라도 추상 메서드가 오직 하나면 함수형 인터페이스이다.
 </details>
 
-</br>
-</br>
 
 <details>
 <summary>foreach를 사용할 수 있는 자료구조는 어떤 인터페이스를 상속 받고 있나요?</summary>
@@ -176,8 +174,6 @@
 - Iterable 인터페이스를 상속 받는다.
 </details>
 
-</br>
-</br>
 
 <details>
 <summary>iterator와 iterable 차이는 무엇인가요?</summary>
@@ -189,8 +185,6 @@
 - Iterable 인터페이스 안에는 iterator 메소드가 추상메소드로 선언되어있다.
 </details>
 
-</br>
-</br>
 
 <details>
 <summary>Fast-fail iterator는 무엇이고 어떤 것을 위해 사용되는 건가요?</summary>
@@ -201,8 +195,6 @@
 - 
 </details>
 
-</br>
-</br>
 
 <details>
 <summary>자바의 synchronized 키워드에 대해 설명해주시고 Reentrant Lock와의 차이는 무엇인지 말씀해주세요.</summary>
@@ -223,7 +215,6 @@
 - static이 포함된 synchronized method방식은 인스턴스가 아닌 클래스 단위로 lock이 발생한다. 인스턴스 단위의 synchronized method와 lock을 공유하지 않는다.
 </details>
 
-</br>
 </br>
 
 ## SPRING
