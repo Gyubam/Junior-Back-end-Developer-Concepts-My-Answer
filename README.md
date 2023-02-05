@@ -745,3 +745,133 @@
 - 따라서 QueryDsl과 같이 문자가아닌, 코드를 통한 쿼리문 작성과 컴파일 시점에 오류를 발견할 수 있다는 장점을 지니기 때문에 위와같은 JPQL Builder를 사용한다.
 </details>
 
+</br>
+</br>
+
+## JAVA
+
+
+<details>
+<summary>TCP와 UDP의 차이는 무엇인가요?</summary>
+
+</br>
+
+- TCP는 연결 지향적 프로토콜이며, 3-way handshaking 과정을 통해 연결을 설정하고, 4-way handshaking 과정을 통해 연결을 해제한다.
+- TCP는 흐름제어, 혼잡제어 및 신뢰성을 보장하기 때문에 파일 전송과 같이 연속성보단 신뢰성이 우선시 되는 경우에 사용한다.
+- UDP는 비연결형 프로토콜이며, 데이터의 전송 순서가 바뀔 수 있다.
+- UDP는 데이터 수신 여부를 확인하지 않아 신뢰성이 낮으며, 실시간 서비스와 같이 신뢰성보단 연속성이 우선시 되는 경우에 사용한다.
+</details>
+
+<details>
+<summary>어느 서비스에서 UDP 기반의 프로토콜을 사용하는 것이 좋을까요?</summary>
+
+</br>
+
+- 실시간 스트리밍 동영상과 같이, 중간에 데이터가 손실되는 측면에서의 위험성은 낮고, 속도가 우선시되는 상황에 사용하는 것이 좋다.
+</details>
+
+
+<details>
+<summary>3 Way Handshake와 4 Way Handshake는 무엇인가요?</summary>
+
+</br>
+
+- 3 Way Handshake는 정확한 전송을 보장하기 위해 상대방 컴퓨터와 사전에 세션을 수립하는 과정을 의미한다.
+  - 1. Client가 Server에게 접속을 요청하는 SYN 플래그를 보낸다.
+  - 2. Server는 SYN이 들어온 것을 확인하고 SYN + ACK 플래그를 Client에게 전송한다.
+  - 3. SYN + ACK 상태를 확인한 Client는 서버에게 ACK를 보내고 연결 성립(Established)이 된다.
+- 4 way handshake는 세션을 종료하기 위해 수행되는 절차를 말한다.
+  - 1. Client가 연결을 종료하겠다는 FIN 플래그를 전송한다.
+  - 2. FIN 플래그를 받은 Server는 확인메세지인 ACK를 Client에게 보내준다.
+  - 3. Close 준비가 다 된 후 Server는 Client에게 FIN 플래그를 전송한다.
+  - 4. Client는 해지 준비가 되었다는 정상응답인 ACK를 Server에게 보내준다.
+</details>
+
+
+<details>
+<summary>3 Way Handshake는 왜 3번 요청을 주고 받는 것인가요?</summary>
+
+</br>
+
+- 양쪽 모두 데이터를 전송할 준비가 되어있다는 것을 보장하고, 실제로 데이터 전달이 시작하기 전에 다른 한쪽이 준비되었다는 것을 알 수 있도록 하기 위함이다.
+</details>
+
+
+<details>
+<summary>TCP Flow Control은 무엇을 해결하기 위한 기능의 집합인가요?</summary>
+
+</br>
+
+- 수신측이 송신측보다 데이터 처리 속도가 빠르면 문제없지만, 송신측의 속도가 더 빠를 경우 생기는 문제인 데이터 손실의 위험을 방지하기 위함이다.
+</details>
+
+
+<details>
+<summary>Sliding Window 라는 개념에 대해서 알고 계시나요?</summary>
+
+</br>
+
+- 수신측에서 설정한 윈도우 크기만큼 송신측에서 확인응답없이 세그먼트를 전송할 수 있게 하여 데이터 흐름을 동적으로 조절하는 제어기법이다.
+</details>
+
+
+<details>
+<summary>TCP Congestion Control은 무엇을 해결하기 위한 기능의 집합인가요?</summary>
+
+</br>
+
+- 만약 한 라우터에 데이터가 몰릴 경우, 자신에게 온 데이터를 모두 처리할 수 없게 되는 문제를 방지하기 위함이다.
+</details>
+
+
+<details>
+<summary>Buffer와 Stream 방식은 각각 무엇인가요? 실시간으로 처리할 필요가 없는 대량의 데이터에 대해서 어떤 방식을 사용하는 것이 효율적일까요?</summary>
+
+</br>
+
+- Buffer 방식은 데이터 전송 시 특정 단위만큼 묶어서 전송하여, 전송 속도 차이에 대한 성능을 보완하기 위해 사용한다.
+- Stream 방식은 버퍼의 크기를 작게 만들어, 주기적으로 데이터를 전달한다.
+- 실시간으로 처리할 필요가 없는 데이터의 경우에는 Buffer 방식을 사용하여, 잦은 api 호출이 일어나지 않도록 성능을 향상시킨다.
+</details>
+
+
+<details>
+<summary>HTTP 멱등성에 대해 설명해주세요.</summary>
+
+</br>
+
+- 동일한 요청을 한 번 보내는 것과 여러 번 연속으로 보내는 것이 같은 효과를 지니고, 서버의 상태도 동일하게 남을 때 HTTP Method 가 멱등성을 갖는다.
+</details>
+
+
+<details>
+<summary>HTTP는 무엇인가요?</summary>
+
+</br>
+
+- Hyper Text Transfer Protocol의 두문자어로, 인터넷에서 데이터를 주고받을 수 있는 프로토콜이다.
+- 전통적인 클라이언트-서버 모델을 따르며 무상태 프로토콜이다.
+- 요청시에 HTTP 메서드, HTTP 메시지, 헤더 등이 존재한다.
+- 일반적으로 안정적인 TCP/IP 레이어를 기반으로 사용하는 응용 프로토콜이다.
+</details>
+
+
+<details>
+<summary>HTTP의 버전별 차이를 알려주세요. (0.9 1.0 1.1 2.0)</summary>
+
+</br>
+
+- 0.9 : 요청은 단일 라인으로 구성, 메서드는 GET만 존재, 헤더 없음
+- 1.0 : HTTP 헤더 도입, 버전 정보와 요청 메서드가 함께 전송, Content-Type을 통한 문서 전송 기능
+- 1.1 : Persistent Connection(지정한 타임아웃 동안 커넥션을 닫지 않는 방법)추가, Pipelining(앞 요청의 응답을 기다리지 않고 순차적인 요청 연속적 전송)추가
+- 2.0 : 기존 HTTP 1.X 버전의 성능 향상에 초점
+</details>
+
+
+<details>
+<summary>Time wait Socket은 무엇일까요?</summary>
+
+</br>
+
+- 마지막 패킷이 제대로 전송 되었는지를 확인하기 위해(패킷 손실이 일어날 수도 있으므로), ACK 전송 이후에 일정 시간동안, 커넥션 상태를 유지하는 것이다.
+</details>
