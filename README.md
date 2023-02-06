@@ -875,3 +875,48 @@
 
 - 마지막 패킷이 제대로 전송 되었는지를 확인하기 위해(패킷 손실이 일어날 수도 있으므로), ACK 전송 이후에 일정 시간동안, 커넥션 상태를 유지하는 것이다.
 </details>
+
+
+<details>
+<summary>Keep Alive는 무엇일까요?</summary>
+
+</br>
+
+- 요청마다 커넥션을 생성하는게 아닌, 커넥션을 유지하여 불필요한 연결의 맺고 끊음을 최소하하여, 네트워크의 부하를 줄이는 방법이다.
+</details>
+
+
+<details>
+<summary>SYN Flooding 공격에 대해서 아시나요?</summary>
+
+</br>
+
+- TCP의 3 Way Handshake의 취약점을 이용한 공격 방식이다.
+- 서버에 과도한 SYN 요청을 보낸 후, 서버의 응답 이후에 ACK를 보내지 않아, 서버 Backlog Queue에 공간을 가득 채워 다른 연결 요청을 불가능하게 만든다.
+- Queue Size를 늘리거나, SYN 임게치 설정, TCP연결 대기시간을 줄임으로써 방지할 수 있다.
+</details>
+
+<details>
+<summary>Polling, Long Polling, Pulling 기법은 각각 무엇이고 어떠한 Trade Off를 가지고 있나요?</summary>
+
+</br>
+
+- Polling : Polling 은 client 가 일정시간 내에 데이터를 얻기 위해 request 를 server 에 보내는 기술을 말한다.
+- Short Polling : client 가 데이터를 얻기위해 request를 서버에 보낸 후, 정해진 지연(정해진 시간) 후에 respose 를 얻을 수 있는 기술이다.
+  - 간단하며 약간의 지연 발생, 주기가 짧을 경우 서버에 무리를 줄 수 있다.
+- Long Polling : client 가 데이터를 위해 request 를 server 에 요청할때, 데이터를 가져오는 것이 불가능할경우, server 가 즉각적으로 반응하지 않고 특정 시간을 기다리는 기술이다.
+  - 더 복잡하고 server 자원을 많이 소비한다. 그러나 client 가 지연없이 real-time 경험을 할 수 있도록 한다.
+- Pulling : 서버의 데이터를 클라이언트가 직접, 쿼리등을 통해서 주기적으로 가져가는 기술이다.
+</details>
+
+<details>
+<summary>Server Sent Events와 Web Socket 기법은 무엇이고 어떠한 장, 단점을 가지고 있나요?</summary>
+
+</br>
+
+- Web Socket : HTML5 표준 기술로, 사용자의 브라우저와 서버 사이의 동적인 양방향 연결 채널을 구성한다. Websocket API를 통해 서버로 메세지를 보내고, 요청 없이 응답을 받아오는 것이 가능하다.
+- Server Sent Events : 서버의 데이터를 실시간, 지속적으로 클라이언트에 보내는 기술이다.
+- SSE는 서버에서 클라이언트로의 단방향 전송이 일어나므로, 프로토콜이나 서버 구현이 필요하지 않다. 또한 클라이언트-서버간에 연결을 유지하지 않아도 되기 때문에 오버헤드가 적다.
+- Web Socket은 SSE와 달리 클라이언트 또한 서버에 데이터를 보낼 수 있다.
+- 
+</details>
