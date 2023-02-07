@@ -920,3 +920,79 @@
 - Web Socket은 SSE와 달리 클라이언트 또한 서버에 데이터를 보낼 수 있다.
 - 
 </details>
+
+
+<details>
+<summary>HTTPS는 무엇인가요?</summary>
+
+</br>
+
+- 기존 HTTP에 보안 요소가 추가된 프로토콜이다.
+- 서버와 클라이언트 사이의 모든 통신 내용을 암호화하는 방식이다.
+- 기본 TCP/IP 포트는 443이고, SSL 프로토콜 위에서 HTTPS 프로토콜이 동작한다.
+</details>
+
+<details>
+<summary>구현된 HTTP API는 어떠한 요소들을 만족해야 RESTful한 API 라고 부를 수 있나요?</summary>
+
+</br>
+
+- 클라이언트와 서버간에 의존성이 없어야 한다.(Client-Server)
+- 클라이언트에서 서버로의 각 요청에는 그 요청을 이해하는 데 필요한 모든 정보가 포함되어야 한다.(Stateless)
+- 요청에 대한 응답 내의 데이터에 해당 요청은 캐시가 가능한지 불가능 한지 명시해야 한다.(Cacheable)
+- URI로 지정된 리소스에 균일하고 통일된 인터페이스를 제공해야 한다.(Uniform Interface)
+- 서버는 중개 서버(게이트웨이, 프록시)나 로드 밸런싱, 공유 캐시 등의 기능을 사용하여 확장성 있는 시스템을 구성할 수 있다.(Layered System)
+- 클라이언트는 서버에서 자바 애플릿, 자바스크립트 실행 코드를 전송받아 기능을 일시적으로 확장할 수 있다.(Code-On-Demand)
+</details>
+
+
+
+<details>
+<summary>get은 무엇이고 어느 상황에 주로 사용하나요?</summary>
+
+</br>
+
+- GET 메소드는 주로 데이터를 읽거나(Read) 검색(Retrieve)할 때에 사용되는 메소드이다.
+- HTTP 명세에 의하면 GET 요청은 오로지 데이터를 읽을 때만 사용되고 수정할 때는 사용하지 않는다.
+- 멱등성이 보장되어야 한다.
+</details>
+
+<details>
+<summary>put과 patch는 무엇이고 각각 언제 사용되나요?</summary>
+
+</br>
+
+- put의 경우 리소스의 모든 부분을 업데이트 하기 위한 메서드이다.
+- patch의 경우 요청된 리소스에 한해 일부만 변경하기 위한 메서드이다.
+- put은 비어져있는 값에 대해 null로 업데이트한다.
+</details>
+
+<details>
+<summary>User라는 리소스가 하위로 item이라는 리소스를 가지고 있습니다. 이를 조회해야할 때 RESTful하게 URL을 설계한다면 어떤 형태의 URL에 GET을 요청하게 되나요?</summary>
+
+</br>
+- http://restapi.example.com/user/1/item/1
+</details>
+
+<details>
+<summary>통신시 사용되는 대표적인 Format으로는 무엇이 있나요?</summary>
+
+</br>
+- 일반 Text 데이터, CSV, XML, JSON 등이 있다.
+</details>
+
+<details>
+<summary>JSON은 무엇인가요?</summary>
+
+</br>
+- JavaScript Object Notation라는 의미의 축약어로 데이터를 저장하거나 전송할 때 많이 사용되는 경량의 DATA 교환 형식이다.
+</details>
+
+<details>
+<summary>Cookie와 Session 방식은 어떠한 차이점을 가지나요?</summary>
+
+</br>
+- 쿠키는 클라이언트 측에 저장이 되어, Request 시에 자동으로 헤더에 포함되어 서버에 전송된다. (속도가 빠르나 로컬에 저장되기 때문에 변질 및 snipping의 우려)
+- 사용자의 정보를 세션id 를 통해 서버측에 저장하고 관리한다. (보안면에서 우수하나 서버의 부담이 증가한다.)
+- 추가) 캐시와는 엄연히 다름 - 캐시는 브라우저나 서버 앞단에 css, js 등 파일을 저장해놓고 사용하는것, 라이프사이클 자체가 다름.
+</details>
